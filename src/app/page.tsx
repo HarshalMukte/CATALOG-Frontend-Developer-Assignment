@@ -1,5 +1,3 @@
-import Header from "../components/Header";
-import Tabs from "../components/Tabs";
 import LineChart from "../components/LineChart";
 import StatsCard from "../components/StatsCard";
 

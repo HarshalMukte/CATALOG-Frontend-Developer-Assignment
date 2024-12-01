@@ -14,6 +14,7 @@ import { Line } from "react-chartjs-2";
 import { generateFakeData } from "@/utils/generateFakeData";
 import { useState } from "react";
 import { FiBarChart2, FiMaximize2 } from "react-icons/fi";
+import { TooltipItem } from "chart.js";
 
 ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend, Filler);
 
