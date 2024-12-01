@@ -21,7 +21,7 @@ ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip,
 export default function LineChart() {
   const [activeRange, setActiveRange] = useState("1W");
 
-  const labels = Array.from({ length: 7 }, (_, i) => `Day ${i + 1}`);
+  const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   const prices = generateFakeData(7, 63000, 200); // Generate data with 7 days, starting at 63k, and moderate volatility.
 
   const data = {
@@ -48,9 +48,10 @@ export default function LineChart() {
       legend: { display: false },
       tooltip: {
         callbacks: {
-          title: (tooltipItems: any) => `Day: ${tooltipItems[0].label}`,
-          label: (tooltipItem: any) => `$${tooltipItem.raw.toFixed(2)} USD`,
-        },
+            title: (tooltipItems: TooltipItem<"line">[]) => `Day: ${tooltipItems[0].label}`,
+            label: (tooltipItem: TooltipItem<"line">) =>
+                `$${(tooltipItem.raw as number)?.toFixed(2)} USD`, // Cast `raw` to number
+            },
       },
     },
     scales: {
